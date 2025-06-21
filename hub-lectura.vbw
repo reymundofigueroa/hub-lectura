@@ -1,1 +1,4 @@
-Form1 = -286, 231, 919, 757, C, -4, 0, 1109, 786, C
+Form1 = 411, 111, 1103, 637, , 20, 55, 1133, 841, C
+ModuloConexion = 484, 288, 1333, 814, 
+ModuloObtenerCatalogo = 556, 191, 1405, 717, 
+ModuloObtenerLibrosPorEstado = 458, -20, 1307, 506, 

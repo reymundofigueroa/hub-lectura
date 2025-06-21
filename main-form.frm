@@ -10,24 +10,24 @@ Begin VB.Form Form1
    ScaleHeight     =   10410
    ScaleWidth      =   15870
    StartUpPosition =   3  'Windows Default
-   Begin VB.CommandButton Command3 
-      Caption         =   "Command1"
+   Begin VB.CommandButton Modificar 
+      Caption         =   "Modificar"
       Height          =   615
-      Left            =   7080
+      Left            =   7200
       TabIndex        =   10
       Top             =   7800
       Width           =   2535
    End
-   Begin VB.CommandButton Command2 
-      Caption         =   "Command1"
+   Begin VB.CommandButton Eliminar 
+      Caption         =   "Eliminar"
       Height          =   615
       Left            =   10200
       TabIndex        =   9
       Top             =   7800
       Width           =   2535
    End
-   Begin VB.CommandButton Command1 
-      Caption         =   "Command1"
+   Begin VB.CommandButton Agregar 
+      Caption         =   "Agregar"
       Height          =   615
       Left            =   3960
       TabIndex        =   8
@@ -36,9 +36,9 @@ Begin VB.Form Form1
    End
    Begin MSComctlLib.ListView Books_list 
       Height          =   6615
-      Left            =   3840
+      Left            =   4200
       TabIndex        =   7
-      Top             =   840
+      Top             =   960
       Width           =   11535
       _ExtentX        =   20346
       _ExtentY        =   11668
@@ -117,6 +117,91 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
-Private Sub Command4_Click()
+Private Sub dislike_Click()
+    MostrarLibrosPorEstado "NoGusto"
+End Sub
 
+Private Sub Favorites_Click()
+    MostrarLibrosPorEstado "Favorito"
+End Sub
+
+Private Sub Form_Load()
+    Call ConectarBase
+
+    With Books_list
+        .View = lvwReport
+        .FullRowSelect = True
+        .GridLines = True
+        .ColumnHeaders.Clear
+        .ColumnHeaders.Add , , "Título", 4000
+        .ColumnHeaders.Add , , "Autor", 3000
+    End With
+End Sub
+
+Private Sub Mega_catalog_Click()
+    Dim rs As ADODB.Recordset
+    Set rs = ObtenerCatalogo '
+
+    Books_list.ListItems.Clear
+
+   Do Until rs.EOF
+    With Books_list.ListItems.Add
+        .Text = rs("Titulo")
+        If Not IsNull(rs("Autor")) Then
+            .SubItems(1) = rs("Autor")
+        Else
+            .SubItems(1) = "Desconocido"
+        End If
+    End With
+    rs.MoveNext
+Loop
+
+    rs.Close
+    Set rs = Nothing
+End Sub
+
+Private Sub Read_Click()
+    MostrarLibrosPorEstado "Leido"
+End Sub
+
+Private Sub Recommended_Click()
+    Dim rs As ADODB.Recordset
+    Set rs = ObtenerRecomendados(1)
+
+    Books_list.ListItems.Clear
+
+    Do Until rs.EOF
+        With Books_list.ListItems.Add
+            .Text = rs("Titulo")
+            If Not IsNull(rs("Autor")) Then .SubItems(1) = rs("Autor")
+        End With
+        rs.MoveNext
+    Loop
+
+    rs.Close
+    Set rs = Nothing
+End Sub
+
+Private Sub Want_to_read_Click()
+    MostrarLibrosPorEstado "PorLeer"
+End Sub
+
+
+
+Private Sub MostrarLibrosPorEstado(estado As String)
+    Dim rs As ADODB.Recordset
+    Set rs = ObtenerLibrosPorEstado(1, estado)
+
+    Books_list.ListItems.Clear
+
+    Do Until rs.EOF
+        With Books_list.ListItems.Add
+            .Text = rs("Titulo")
+            If Not IsNull(rs("Autor")) Then .SubItems(1) = rs("Autor")
+        End With
+        rs.MoveNext
+    Loop
+
+    rs.Close
+    Set rs = Nothing
 End Sub
