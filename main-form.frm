@@ -122,11 +122,72 @@ Private Sub Agregar_Click()
 End Sub
 
 Private Sub dislike_Click()
-    MostrarLibrosPorEstado "NoGusto"
+     Dim rs As ADODB.Recordset
+    Set rs = ObtenerLibrosPorEstado(1, "Nogusto")
+
+    Books_list.ListItems.Clear
+
+    Do Until rs.EOF
+        With Books_list.ListItems.Add
+            .Text = rs("Titulo")
+            .SubItems(1) = rs("Autor")
+            .Tag = rs("Id") ' ? Aquí se guarda el Id del libro
+        End With
+        rs.MoveNext
+    Loop
+
+    rs.Close
+    Set rs = Nothing
+End Sub
+
+Private Sub Eliminar_Click()
+Dim libroId As Integer
+
+    ' Validar que haya un ítem seleccionado
+    If Books_list.SelectedItem Is Nothing Then
+        MsgBox "Por favor selecciona un libro para eliminar.", vbExclamation
+        Exit Sub
+    End If
+
+    libroId = CInt(Books_list.SelectedItem.Tag)
+
+    ' Confirmación
+    If MsgBox("¿Estás seguro de que deseas eliminar este libro?", vbYesNo + vbQuestion, "Confirmar eliminación") = vbNo Then
+        Exit Sub
+    End If
+
+    ' Conexión
+    If conn Is Nothing Then Call ConectarBase
+    If conn.State = adStateClosed Then conn.Open
+
+    ' Eliminar en orden correcto (dependencias primero)
+    conn.Execute "DELETE FROM ListasDeLecturaEstados WHERE ListaLecturaId IN (SELECT Id FROM ListasDeLectura WHERE LibroId = " & libroId & ")"
+    conn.Execute "DELETE FROM ListasDeLectura WHERE LibroId = " & libroId
+    conn.Execute "DELETE FROM Libros WHERE Id = " & libroId
+
+    ' Quitar del ListView
+    Books_list.ListItems.Remove Books_list.SelectedItem.Index
+
+    MsgBox "Libro eliminado correctamente.", vbInformation
 End Sub
 
 Private Sub Favorites_Click()
-    MostrarLibrosPorEstado "Favorito"
+     Dim rs As ADODB.Recordset
+    Set rs = ObtenerLibrosPorEstado(1, "Favorito")
+
+    Books_list.ListItems.Clear
+
+    Do Until rs.EOF
+        With Books_list.ListItems.Add
+            .Text = rs("Titulo")
+            .SubItems(1) = rs("Autor")
+            .Tag = rs("Id") ' ? Aquí se guarda el Id del libro
+        End With
+        rs.MoveNext
+    Loop
+
+    rs.Close
+    Set rs = Nothing
 End Sub
 
 Private Sub Form_Load()
@@ -179,7 +240,22 @@ Private Sub Modificar_Click()
 End Sub
 
 Private Sub Read_Click()
-    MostrarLibrosPorEstado "Leido"
+     Dim rs As ADODB.Recordset
+    Set rs = ObtenerLibrosPorEstado(1, "Leido")
+
+    Books_list.ListItems.Clear
+
+    Do Until rs.EOF
+        With Books_list.ListItems.Add
+            .Text = rs("Titulo")
+            .SubItems(1) = rs("Autor")
+            .Tag = rs("Id") ' ? Aquí se guarda el Id del libro
+        End With
+        rs.MoveNext
+    Loop
+
+    rs.Close
+    Set rs = Nothing
 End Sub
 
 Private Sub Recommended_Click()
@@ -191,7 +267,8 @@ Private Sub Recommended_Click()
     Do Until rs.EOF
         With Books_list.ListItems.Add
             .Text = rs("Titulo")
-            If Not IsNull(rs("Autor")) Then .SubItems(1) = rs("Autor")
+            .SubItems(1) = rs("Autor")
+            .Tag = rs("Id")
         End With
         rs.MoveNext
     Loop
@@ -201,7 +278,22 @@ Private Sub Recommended_Click()
 End Sub
 
 Private Sub Want_to_read_Click()
-    MostrarLibrosPorEstado "PorLeer"
+     Dim rs As ADODB.Recordset
+    Set rs = ObtenerLibrosPorEstado(1, "PorLeer")
+
+    Books_list.ListItems.Clear
+
+    Do Until rs.EOF
+        With Books_list.ListItems.Add
+            .Text = rs("Titulo")
+            .SubItems(1) = rs("Autor")
+            .Tag = rs("Id") ' ? Aquí se guarda el Id del libro
+        End With
+        rs.MoveNext
+    Loop
+
+    rs.Close
+    Set rs = Nothing
 End Sub
 
 
