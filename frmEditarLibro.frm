@@ -12,9 +12,9 @@ Begin VB.Form frmEditarLibro
    Begin VB.CommandButton btnCancelar 
       Caption         =   "Cancelar"
       Height          =   735
-      Left            =   4440
+      Left            =   4320
       TabIndex        =   4
-      Top             =   7440
+      Top             =   7680
       Width           =   1815
    End
    Begin VB.CommandButton btnGuardar 
@@ -22,15 +22,15 @@ Begin VB.Form frmEditarLibro
       Height          =   735
       Left            =   1440
       TabIndex        =   3
-      Top             =   7440
+      Top             =   7680
       Width           =   1815
    End
    Begin VB.Frame Frame1 
       Caption         =   "Editar libro"
       Height          =   5535
-      Left            =   600
+      Left            =   720
       TabIndex        =   0
-      Top             =   1560
+      Top             =   1680
       Width           =   6375
       Begin VB.TextBox txtAutor 
          Height          =   375
@@ -114,6 +114,23 @@ Begin VB.Form frmEditarLibro
          Width           =   1695
          WordWrap        =   -1  'True
       End
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Edita este libro"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   30
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   735
+      Left            =   1800
+      TabIndex        =   11
+      Top             =   360
+      Width           =   4335
    End
 End
 Attribute VB_Name = "frmEditarLibro"

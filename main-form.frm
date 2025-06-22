@@ -12,33 +12,60 @@ Begin VB.Form Form1
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Modificar 
       Caption         =   "Modificar"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   615
-      Left            =   7200
+      Left            =   7080
       TabIndex        =   10
-      Top             =   7800
+      Top             =   8280
       Width           =   2535
    End
    Begin VB.CommandButton Eliminar 
       Caption         =   "Eliminar"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   615
       Left            =   10200
       TabIndex        =   9
-      Top             =   7800
+      Top             =   8280
       Width           =   2535
    End
    Begin VB.CommandButton Agregar 
       Caption         =   "Agregar"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   615
       Left            =   3960
       TabIndex        =   8
-      Top             =   7800
+      Top             =   8280
       Width           =   2535
    End
    Begin MSComctlLib.ListView Books_list 
       Height          =   6615
-      Left            =   4200
+      Left            =   3720
       TabIndex        =   7
-      Top             =   960
+      Top             =   1440
       Width           =   11535
       _ExtentX        =   20346
       _ExtentY        =   11668
@@ -56,59 +83,130 @@ Begin VB.Form Form1
    End
    Begin VB.Frame Categories 
       Caption         =   "Categorías"
-      Height          =   9015
+      Height          =   8175
       Left            =   480
       TabIndex        =   0
-      Top             =   720
+      Top             =   1320
       Width           =   2895
       Begin VB.CommandButton Favorites 
          Caption         =   "Favoritos"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          Height          =   975
          Left            =   480
          TabIndex        =   6
-         Top             =   6360
+         Top             =   5520
          Width           =   1935
       End
       Begin VB.CommandButton Want_to_read 
          Caption         =   "Quiero leer"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          Height          =   975
          Left            =   480
          TabIndex        =   5
-         Top             =   3600
+         Top             =   2880
          Width           =   1935
       End
       Begin VB.CommandButton Read 
          Caption         =   "Leído"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          Height          =   975
          Left            =   480
          TabIndex        =   4
-         Top             =   2160
+         Top             =   1560
          Width           =   1935
       End
       Begin VB.CommandButton dislike 
          Caption         =   "No te gustaron"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          Height          =   975
          Left            =   480
          TabIndex        =   3
-         Top             =   5040
+         Top             =   4200
          Width           =   1935
       End
       Begin VB.CommandButton Recommended 
          Caption         =   "Recomendados"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          Height          =   975
          Left            =   480
          TabIndex        =   2
-         Top             =   7800
+         Top             =   6840
          Width           =   1935
       End
       Begin VB.CommandButton Mega_catalog 
          Caption         =   "Catálogo Mega"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          Height          =   975
-         Left            =   600
+         Left            =   480
          TabIndex        =   1
-         Top             =   720
+         Top             =   360
          Width           =   1935
       End
+   End
+   Begin VB.Label Label1 
+      Caption         =   "MEGA Libros"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   30
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   735
+      Left            =   5880
+      TabIndex        =   11
+      Top             =   360
+      Width           =   4095
    End
 End
 Attribute VB_Name = "Form1"

@@ -1,12 +1,12 @@
 VERSION 5.00
 Begin VB.Form frmAgregarLibro 
    Caption         =   "Agregar libro"
-   ClientHeight    =   6780
+   ClientHeight    =   8235
    ClientLeft      =   60
    ClientTop       =   405
    ClientWidth     =   7650
    LinkTopic       =   "Form2"
-   ScaleHeight     =   6780
+   ScaleHeight     =   8235
    ScaleWidth      =   7650
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton btnCancelar 
@@ -21,9 +21,9 @@ Begin VB.Form frmAgregarLibro
          Strikethrough   =   0   'False
       EndProperty
       Height          =   735
-      Left            =   4440
+      Left            =   4320
       TabIndex        =   10
-      Top             =   5280
+      Top             =   6840
       Width           =   2055
    End
    Begin VB.CommandButton btnGuardarLibro 
@@ -40,7 +40,7 @@ Begin VB.Form frmAgregarLibro
       Height          =   735
       Left            =   1200
       TabIndex        =   9
-      Top             =   5280
+      Top             =   6840
       Width           =   1935
    End
    Begin VB.Frame caption 
@@ -48,7 +48,7 @@ Begin VB.Form frmAgregarLibro
       Height          =   4575
       Left            =   600
       TabIndex        =   0
-      Top             =   360
+      Top             =   1680
       Width           =   6495
       Begin VB.TextBox txtUrlMega 
          Height          =   375
@@ -148,16 +148,29 @@ Begin VB.Form frmAgregarLibro
          Width           =   1455
       End
    End
+   Begin VB.Label Label1 
+      Caption         =   "Agrega un libro nuevo"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   30
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   840
+      TabIndex        =   11
+      Top             =   480
+      Width           =   6255
+   End
 End
 Attribute VB_Name = "frmAgregarLibro"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Label1_Click()
-
-End Sub
-
 Private Sub Combo1_Change()
 
 End Sub
