@@ -9,6 +9,7 @@ Module=ModuloConexion; ModuloConexion.bas
 Module=ModuloObtenerCatalogo; ObtenerCatalogo.bas
 Module=ModuloObtenerLibrosPorEstado; ModuloObtenerLibrosPorEstado.bas
 Form=frmAgregarLibro.frm
+Form=frmEditarLibro.frm
 IconForm="Form1"
 Startup="Form1"
 Command32=""

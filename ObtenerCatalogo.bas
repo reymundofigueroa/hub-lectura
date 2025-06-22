@@ -4,6 +4,6 @@ Public Function ObtenerCatalogo() As ADODB.Recordset
     If conn.State = adStateClosed Then conn.Open
 
     Dim rs As New ADODB.Recordset
-    rs.Open "SELECT Titulo, Autor FROM Libros", conn, adOpenStatic, adLockReadOnly
+    rs.Open "SELECT Id, Titulo, Autor FROM Libros", conn, adOpenStatic, adLockReadOnly
     Set ObtenerCatalogo = rs
 End Function

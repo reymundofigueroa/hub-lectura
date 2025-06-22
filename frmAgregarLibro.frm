@@ -54,7 +54,6 @@ Begin VB.Form frmAgregarLibro
          Height          =   375
          Left            =   2400
          TabIndex        =   8
-         Text            =   "Text3"
          Top             =   3120
          Width           =   3375
       End
@@ -70,7 +69,6 @@ Begin VB.Form frmAgregarLibro
          Height          =   375
          Left            =   2400
          TabIndex        =   4
-         Text            =   "Text2"
          Top             =   1680
          Width           =   3375
       End
@@ -78,7 +76,6 @@ Begin VB.Form frmAgregarLibro
          Height          =   405
          Left            =   2400
          TabIndex        =   2
-         Text            =   "Text1"
          Top             =   960
          Width           =   3375
       End

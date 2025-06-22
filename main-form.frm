@@ -104,7 +104,7 @@ Begin VB.Form Form1
       Begin VB.CommandButton Mega_catalog 
          Caption         =   "Catálogo Mega"
          Height          =   975
-         Left            =   480
+         Left            =   600
          TabIndex        =   1
          Top             =   720
          Width           =   1935
@@ -118,7 +118,6 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 Private Sub Agregar_Click()
-    MsgBox TypeName(frmAgregarLibro)
     frmAgregarLibro.Show vbModal
 End Sub
 
@@ -157,12 +156,26 @@ Private Sub Mega_catalog_Click()
         Else
             .SubItems(1) = "Desconocido"
         End If
+        .Tag = rs("Id")
     End With
     rs.MoveNext
 Loop
 
     rs.Close
     Set rs = Nothing
+End Sub
+
+Private Sub Modificar_Click()
+    If Books_list.SelectedItem Is Nothing Then
+        MsgBox "Selecciona un libro de la lista.", vbExclamation
+        Exit Sub
+    End If
+
+    Dim idLibro As Integer
+    idLibro = Books_list.SelectedItem.Tag ' Asegúrate que Tag guarde el Id
+
+    frmEditarLibro.CargarDatos idLibro, 1 ' ? Ajusta con el ID real del usuario
+    frmEditarLibro.Show vbModal
 End Sub
 
 Private Sub Read_Click()

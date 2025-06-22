@@ -4,7 +4,7 @@ Public Function ObtenerLibrosPorEstado(idUsuario As Integer, estado As String) A
     If conn.State = adStateClosed Then conn.Open
 
     Dim sql As String
-    sql = "SELECT L.Titulo, L.Autor, L.UrlMega " & _
+    sql = "SELECT L.Id, L.Titulo, L.Autor, L.UrlMega " & _
           "FROM Libros L " & _
           "INNER JOIN ListasDeLectura LL ON L.Id = LL.LibroId " & _
           "INNER JOIN ListasDeLecturaEstados E ON E.ListaLecturaId = LL.Id " & _
