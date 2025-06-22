@@ -117,6 +117,11 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
+Private Sub Agregar_Click()
+    MsgBox TypeName(frmAgregarLibro)
+    frmAgregarLibro.Show vbModal
+End Sub
+
 Private Sub dislike_Click()
     MostrarLibrosPorEstado "NoGusto"
 End Sub
