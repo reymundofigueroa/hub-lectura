@@ -1,6 +1,6 @@
-Form1 = 311, 92, 947, 754, , -43, 98, 1051, 819, C
+Form1 = 311, 92, 947, 754, , -41, 244, 1053, 965, C
 ModuloConexion = 4, 483, 558, 784, 
 ModuloObtenerCatalogo = 554, 200, 1108, 588, 
 ModuloObtenerLibrosPorEstado = 186, 143, 1108, 784, 
-frmAgregarLibro = 511, 156, 1065, 352, , 161, 138, 715, 619, C
-frmEditarLibro = 209, 44, 1057, 571, , 156, 47, 1005, 706, C
+frmAgregarLibro = 511, 156, 1065, 352, , 153, 97, 707, 744, C
+frmEditarLibro = 209, 44, 1057, 571, C, 156, 47, 1005, 706, C
